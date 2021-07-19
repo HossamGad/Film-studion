@@ -1,0 +1,86 @@
+Krav:
+[x] Din API lösning ska vara byggt i ASP.NET
+ (Länkar till en externa sida.)
+ Core, version 3.0 eller 3.1.
+[x] I API:et ska resursen filmer finnas... 
+[x] Det ska gå att lägga till en ny film  x
+[x] Det ska gå att ändra hur många studios som kan låna filmen samtidigt
+[x] Det ska gå att markera att en film är utlånad till en filmstudio, man får inte låna ut den mer än filmen finns tillgänglig (max-antal utlåningar)
+[x] Det ska såklart även gå att ändra så att filmen inte längre är utlånad till en viss filmstudio
+[x] En annan resurs som ska finnas är filmstudios 
+[x] Det ska gå att registrera en ny filmstudio
+[x] Det ska gå att ta bort en filmstudio
+[x] Det ska gå att byta namn, och ort på en filmstudio
+[x] Via API:et ska man kunna få fram vilka filmer som studion har lånat
+[] När filmstudiorna har visat filmerna rapporterar dem in ett betyg och ibland även en triva på film 
+[x] Det ska gå att skapa ett nytt trivia objekt som håller koll på en liten anekdot för en viss film (Kan vara en string, kolla på IMDB för exempel)
+[x] Det ska gå att ta bort inskriven trivia
+[x] Det ska också gå att rappotera in ett betyg mellan 1 och 5, det är viktigt att komma ihåg vilken studio som gav betyget för vilken film.
+ 
+Tips:
+Notera att det behöver inte gå att ta bort filmer, eller ändra deras detaljer. Det är Ok att ni skapar extra resurser och klasser än dom som minns här, men detta är minimumkraven från SFF.
+ 
+ 
+Klientgränsnittet
+När SFFs administratörer arbetar idag så är det första dom tänker på vilken filmstudio det är som dom gör aktuella val för det är alltså också det viktigaste valet man gör i klientgränsnittet. Alla vidare val ska vara för den filmstudion.
+Krav:
+Ovanstående krävda funktioner i API:et ska alla gå att använda från klientgränsnittet
+Man ska kunna välja vilken filmstudio man arbetar med, tillgängliga filmstudios ska hämtas från API:et
+Man ska kunna se en lista på alla tillgängliga filmer, där ska man se om de går att låna och om de är utlånade
+Om man vill ha mer detaljer om en film ska man kunna se en lista med trivia för den filmen, betyg och vilka filmstudios som just nu lånar filmen.
+ 
+
+
+==============================================================================================================================
+ <div>
+        <div class="wrapper">
+
+            <!-- header -->
+            <div class="insideWrapper">
+                <!-- <div class="container"> -->
+
+                <div class="header ">
+                    <div class="headerText"><h2>Svenska Förenade Filmstudios</h2></div>
+                </div>
+            </div>
+            <div class="navbar">
+                <div class="btn-group">
+                    <div class="button" id="userName"></div>
+                    <button class="button" id="movieButton">Movies</button>
+                    <button class="button" id="studioButton">Studios</button>
+                    <button class="button" id="rentalButton">Rentals</button>
+                    <button class="button" id="ReviewButton">Reviews</button>
+                    <button class="button" id="triviaButton">Add Trivia</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID	</th>
+                                <th>Name<br />	</th>
+                                <th>genre	</th>
+                                <th>studioName	</th>
+                                <th>reviews	</th>
+                                <th>stock	</th>
+                                <th>trivias	</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="data">
+                        </tbody>
+                    </table>
+                    <div>
+                        <h2>Create Review</h2>
+                        <form action="/action_page.php">
+                            <label for="fname">Grade:</label>
+                            <input type="text" id="fname" name="fname"><br><br>
+                            <label for="lname">Movie name:</label>
+                            <input type="text" id="lname" name="lname"><br><br>
+                            <input type="submit" value="create">
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
